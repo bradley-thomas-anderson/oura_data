@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/11/2023 10:18:09 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARLINGTONVIEW"
+  DTS:CreatorName="ARLINGTONVIEW\ArlingtonView"
+  DTS:DTSID="{B1AD7C11-2E29-490B-9528-2B52C00138C2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5131.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{995895E5-A28D-461A-B9A3-09301A99B09E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Oura Data Sequence"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{05652AE2-CD5B-492C-8D09-FBC7C8636E45}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Oura Data Sequence">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Oura Data Sequence\API Script"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Executes python API pull for oura data"
+          DTS:DTSID="{F4E651DB-09BC-4F23-8D28-5086E9C7C308}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="API Script"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">@[$Project::scriptsDir]+ @[$Project::oura_script]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Executable">@[$Project::pythonExe]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Users\admin\AppData\Local\Microsoft\WindowsApps\python.exe"
+              Arguments="C:\sharefolder\Scripts\SleepTracker\oura_data.py"
+              WorkingDirectory="C:\sharefolder\Scripts\SleepTracker\" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Oura Data Sequence\API Script"
+          TopLeft="57.166643218035,24.9333319471943" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="291.2,122.4"
+          Size="291.2,165.6"
+          Id="Package\Oura Data Sequence"
+          TopLeft="371.666646359696,130.866665756636" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

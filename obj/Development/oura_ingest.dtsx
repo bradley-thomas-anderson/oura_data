@@ -1,0 +1,2402 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/11/2023 10:18:09 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARLINGTONVIEW"
+  DTS:CreatorName="ARLINGTONVIEW\ArlingtonView"
+  DTS:DTSID="{B1AD7C11-2E29-490B-9528-2B52C00138C2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5131.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{5FB2C8BC-BD89-424A-950F-F1D5F6B1BFB3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARLINGTONVIEW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{32E6E505-729B-491D-9D3A-77F3B51A5746}"
+      DTS:ObjectName="ARLINGTONVIEW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARLINGTONVIEW;Provider=SSISOLEDB.5;Persist Security Info=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARLINGTONVIEW.STG1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{97EA63E3-491A-450C-A351-0AC415330BDB}"
+      DTS:ObjectName="ARLINGTONVIEW.STG1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARLINGTONVIEW;Initial Catalog=STG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{97EA63E3-491A-450C-A351-0AC415330BDB}ARLINGTONVIEW.STG1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[oura_data_connection]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Data connector for oura_data"
+      DTS:DTSID="{391F797D-A327-4C44-8A2E-480C56A8BE07}"
+      DTS:ObjectName="oura_data_connection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\sharefolder\Archive\SleepTracker\oura_sleep_data_20230312.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="summary_date"
+              DTS:DTSID="{D76D5597-E516-48F3-9C41-570FFBA574A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="period_id"
+              DTS:DTSID="{43BEABEC-ED4D-4328-8C5A-1499FAED11E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="is_longest"
+              DTS:DTSID="{3B70A87C-91F5-4539-8424-ABD33FB3745E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="timezone"
+              DTS:DTSID="{BC356731-EE84-469C-BCA4-E0098C581B27}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="bedtime_end"
+              DTS:DTSID="{C84F2D78-C92D-4317-B1ED-EEAD14C720B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="bedtime_start"
+              DTS:DTSID="{453DB176-A6AF-4743-A70A-0257EE52B591}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="type"
+              DTS:DTSID="{20AB8CED-73D0-49E0-BE0D-A4D15FAC8409}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="breath_average"
+              DTS:DTSID="{70BF4A71-31E7-4C99-97DD-073BBEAF83AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="average_breath_variation"
+              DTS:DTSID="{88B98285-85ED-43C1-83FF-B13A3846550A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="duration"
+              DTS:DTSID="{5082A1CD-0B70-48C0-9925-32B3BFE5C8C3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="total"
+              DTS:DTSID="{6FF0109F-62E6-4E5C-91AA-51131D60E406}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="awake"
+              DTS:DTSID="{4306CE0B-E7BC-46BC-A001-25452EF686A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rem"
+              DTS:DTSID="{61670233-ABF3-4D0F-B481-E8A75FDE2CA6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="deep"
+              DTS:DTSID="{B58E98A2-9836-4DDD-AF68-72C7F4D522CE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="light"
+              DTS:DTSID="{9B3BCED6-F9CF-4C0D-8C7D-CF041E284EFB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="midpoint_time"
+              DTS:DTSID="{A1793DD1-69CF-49E1-90E7-5BB0CA7BBF8B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="efficiency"
+              DTS:DTSID="{5B3558E4-0F94-47C2-9619-24FA15B2A027}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="restless"
+              DTS:DTSID="{607D82B6-11E8-42E3-8CAA-922A9C084815}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="onset_latency"
+              DTS:DTSID="{028F3324-56D0-461F-8835-8E124EE56AB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="got_up_count"
+              DTS:DTSID="{179283FF-482E-4E38-9A89-ED399CA56A26}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wake_up_count"
+              DTS:DTSID="{CDC57218-D3A5-4359-9F43-523DECFD18F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="550"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hr_5min"
+              DTS:DTSID="{4F927F95-01B5-4D72-8CB9-3AD7E99B96AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hr_average"
+              DTS:DTSID="{3E402CDF-F641-427B-82DA-036A496E579D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hr_lowest"
+              DTS:DTSID="{F51AD118-066B-4055-B1D4-9B3B3D0E6AD0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lowest_heart_rate_time_offset"
+              DTS:DTSID="{6A79B3E8-62B8-4A90-BF60-9AAB74886688}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="550"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hypnogram_5min"
+              DTS:DTSID="{E93ED738-DD1F-48F7-9DB5-D4CE9F819293}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rmssd"
+              DTS:DTSID="{42569178-E90F-41E9-B1FC-38914712548C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="550"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rmssd_5min"
+              DTS:DTSID="{04E82D5F-5832-49A7-A209-6FF65451F9A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score"
+              DTS:DTSID="{CBED7F2A-A21C-4EB3-A753-7DC1DC07C96D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_alignment"
+              DTS:DTSID="{D8EDBF39-C0D7-495E-B5A0-31236D1EC067}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_deep"
+              DTS:DTSID="{5842DEEA-3299-457F-91A8-BA23E4E276EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_disturbances"
+              DTS:DTSID="{FAA8EDB0-F1D1-41F8-8E8F-F40576290775}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_efficiency"
+              DTS:DTSID="{CCC0CBC1-A1D8-4D8D-9AB8-0FB708B9E04E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_latency"
+              DTS:DTSID="{AD74CD0C-69ED-4CB9-8B9E-FBD136A8635F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_rem"
+              DTS:DTSID="{308FEC7C-09D6-4CF5-A276-6CE74F015FA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_total"
+              DTS:DTSID="{070EEA88-3145-429D-AC88-A60331548F4B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="temperature_deviation"
+              DTS:DTSID="{D263A6C2-890A-4346-8F9B-2C89C1FA0EE6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="temperature_trend_deviation"
+              DTS:DTSID="{E3141204-2DDF-465F-9EE1-4782F48EDC87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="bedtime_start_delta"
+              DTS:DTSID="{DA6398AA-0EE9-4BDA-A9EF-DBBBC80066DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="bedtime_end_delta"
+              DTS:DTSID="{990A6023-C19F-4FB5-8610-7C1B3D131876}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="midpoint_at_delta"
+              DTS:DTSID="{121E54B4-AE2B-4370-ACE1-888160C7F921}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="temperature_delta"
+              DTS:DTSID="{A117F253-16B5-4489-9F2D-94AA3849C03F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Oura Data Sequence"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{05652AE2-CD5B-492C-8D09-FBC7C8636E45}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Oura Data Sequence">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Oura Data Sequence\Copy Data In Archive"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{8AE712B7-D20B-49B4-AFCC-F69D92406F10}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Copy Data In Archive"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">@[$Project::oura_archive]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Executable">@[$Project::pythonExe]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="WorkingDirectory">@[$Project::scriptsDir]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\ProgramData\miniconda3\python.exe"
+              Arguments="oura_archive.py"
+              WorkingDirectory="C:\sharefolder\Scripts\SleepTracker\" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Oura Data Sequence\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{B0B6867B-CF38-4C1A-85F9-B9D24B576BC5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add DATE STAMP"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Output].Columns[DTS]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Output].Columns[DTS]"
+                          name="DTS"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[oura_data_connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[oura_data_connection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[summary_date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[summary_date]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[summary_date]"
+                          name="summary_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[period_id]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[period_id]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[period_id]"
+                          name="period_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[is_longest]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[is_longest]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[is_longest]"
+                          name="is_longest"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[timezone]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]"
+                          name="timezone"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_end]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[bedtime_end]"
+                          length="50"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_end]"
+                          name="bedtime_end"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_start]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[bedtime_start]"
+                          length="50"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_start]"
+                          name="bedtime_start"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[type]"
+                          length="50"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[type]"
+                          name="type"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[breath_average]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[breath_average]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[breath_average]"
+                          name="breath_average"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[average_breath_variation]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[average_breath_variation]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[average_breath_variation]"
+                          name="average_breath_variation"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[duration]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[duration]"
+                          name="duration"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[total]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[total]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[total]"
+                          name="total"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[awake]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[awake]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[awake]"
+                          name="awake"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[rem]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rem]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[rem]"
+                          name="rem"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[deep]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[deep]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[deep]"
+                          name="deep"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[light]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[light]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[light]"
+                          name="light"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[midpoint_time]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[midpoint_time]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[midpoint_time]"
+                          name="midpoint_time"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[efficiency]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[efficiency]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[efficiency]"
+                          name="efficiency"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[restless]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[restless]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[restless]"
+                          name="restless"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[onset_latency]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[onset_latency]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[onset_latency]"
+                          name="onset_latency"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[got_up_count]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[got_up_count]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[got_up_count]"
+                          name="got_up_count"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[wake_up_count]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wake_up_count]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[wake_up_count]"
+                          name="wake_up_count"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hr_5min]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hr_5min]"
+                          length="550"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hr_5min]"
+                          name="hr_5min"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hr_average]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hr_average]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hr_average]"
+                          name="hr_average"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hr_lowest]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hr_lowest]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hr_lowest]"
+                          name="hr_lowest"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[lowest_heart_rate_time_offset]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lowest_heart_rate_time_offset]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[lowest_heart_rate_time_offset]"
+                          name="lowest_heart_rate_time_offset"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hypnogram_5min]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hypnogram_5min]"
+                          length="550"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hypnogram_5min]"
+                          name="hypnogram_5min"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[rmssd]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rmssd]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[rmssd]"
+                          name="rmssd"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[rmssd_5min]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rmssd_5min]"
+                          length="550"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[rmssd_5min]"
+                          name="rmssd_5min"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score]"
+                          name="score"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_alignment]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_alignment]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_alignment]"
+                          name="score_alignment"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_deep]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_deep]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_deep]"
+                          name="score_deep"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_disturbances]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_disturbances]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_disturbances]"
+                          name="score_disturbances"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_efficiency]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_efficiency]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_efficiency]"
+                          name="score_efficiency"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_latency]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_latency]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_latency]"
+                          name="score_latency"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_rem]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_rem]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_rem]"
+                          name="score_rem"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_total]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_total]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_total]"
+                          name="score_total"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_deviation]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[temperature_deviation]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_deviation]"
+                          name="temperature_deviation"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_trend_deviation]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[temperature_trend_deviation]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_trend_deviation]"
+                          name="temperature_trend_deviation"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_start_delta]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[bedtime_start_delta]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_start_delta]"
+                          name="bedtime_start_delta"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_end_delta]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[bedtime_end_delta]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_end_delta]"
+                          name="bedtime_end_delta"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[midpoint_at_delta]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[midpoint_at_delta]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[midpoint_at_delta]"
+                          name="midpoint_at_delta"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_delta]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[temperature_delta]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_delta]"
+                          name="temperature_delta"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[summary_date]"
+                          dataType="date"
+                          name="summary_date" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[period_id]"
+                          dataType="ui1"
+                          name="period_id" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[is_longest]"
+                          dataType="ui1"
+                          name="is_longest" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[timezone]"
+                          dataType="i2"
+                          name="timezone" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[bedtime_end]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bedtime_end" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[bedtime_start]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bedtime_start" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="type" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[breath_average]"
+                          dataType="r8"
+                          name="breath_average" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[average_breath_variation]"
+                          dataType="r8"
+                          name="average_breath_variation" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                          dataType="i4"
+                          name="duration" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[total]"
+                          dataType="i4"
+                          name="total" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[awake]"
+                          dataType="i2"
+                          name="awake" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rem]"
+                          dataType="i2"
+                          name="rem" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[deep]"
+                          dataType="i2"
+                          name="deep" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[light]"
+                          dataType="i2"
+                          name="light" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[midpoint_time]"
+                          dataType="i2"
+                          name="midpoint_time" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[efficiency]"
+                          dataType="ui1"
+                          name="efficiency" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[restless]"
+                          dataType="ui1"
+                          name="restless" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[onset_latency]"
+                          dataType="i2"
+                          name="onset_latency" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[got_up_count]"
+                          dataType="bool"
+                          name="got_up_count" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wake_up_count]"
+                          dataType="ui1"
+                          name="wake_up_count" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hr_5min]"
+                          codePage="1252"
+                          dataType="str"
+                          length="550"
+                          name="hr_5min" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hr_average]"
+                          dataType="r8"
+                          name="hr_average" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hr_lowest]"
+                          dataType="r8"
+                          name="hr_lowest" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lowest_heart_rate_time_offset]"
+                          dataType="i2"
+                          name="lowest_heart_rate_time_offset" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hypnogram_5min]"
+                          codePage="1252"
+                          dataType="str"
+                          length="550"
+                          name="hypnogram_5min" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rmssd]"
+                          dataType="ui1"
+                          name="rmssd" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rmssd_5min]"
+                          codePage="1252"
+                          dataType="str"
+                          length="550"
+                          name="rmssd_5min" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score]"
+                          dataType="ui1"
+                          name="score" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_alignment]"
+                          dataType="ui1"
+                          name="score_alignment" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_deep]"
+                          dataType="ui1"
+                          name="score_deep" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_disturbances]"
+                          dataType="ui1"
+                          name="score_disturbances" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_efficiency]"
+                          dataType="ui1"
+                          name="score_efficiency" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_latency]"
+                          dataType="ui1"
+                          name="score_latency" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_rem]"
+                          dataType="ui1"
+                          name="score_rem" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_total]"
+                          dataType="ui1"
+                          name="score_total" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[temperature_deviation]"
+                          dataType="r8"
+                          name="temperature_deviation" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[temperature_trend_deviation]"
+                          dataType="r8"
+                          name="temperature_trend_deviation" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[bedtime_start_delta]"
+                          dataType="i4"
+                          name="bedtime_start_delta" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[bedtime_end_delta]"
+                          dataType="i4"
+                          name="bedtime_end_delta" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[midpoint_at_delta]"
+                          dataType="i4"
+                          name="midpoint_at_delta" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[temperature_delta]"
+                          dataType="r8"
+                          name="temperature_delta" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[oura].[oura_data]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ARLINGTONVIEW.STG1]"
+                      connectionManagerRefId="Package.ConnectionManagers[ARLINGTONVIEW.STG1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[summary_date]"
+                          cachedDataType="date"
+                          cachedName="summary_date"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[summary_date]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[summary_date]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[period_id]"
+                          cachedDataType="ui1"
+                          cachedName="period_id"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[period_id]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[period_id]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_longest]"
+                          cachedDataType="ui1"
+                          cachedName="is_longest"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_longest]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[is_longest]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[timezone]"
+                          cachedDataType="i2"
+                          cachedName="timezone"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bedtime_end]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="bedtime_end"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bedtime_end]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_end]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bedtime_start]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="bedtime_start"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bedtime_start]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_start]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="type"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[type]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[breath_average]"
+                          cachedDataType="r8"
+                          cachedName="breath_average"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[breath_average]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[breath_average]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[average_breath_variation]"
+                          cachedDataType="r8"
+                          cachedName="average_breath_variation"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[average_breath_variation]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[average_breath_variation]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[duration]"
+                          cachedDataType="i4"
+                          cachedName="duration"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[duration]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[duration]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total]"
+                          cachedDataType="i4"
+                          cachedName="total"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[total]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[awake]"
+                          cachedDataType="i2"
+                          cachedName="awake"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[awake]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[awake]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rem]"
+                          cachedDataType="i2"
+                          cachedName="rem"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rem]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[rem]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[deep]"
+                          cachedDataType="i2"
+                          cachedName="deep"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[deep]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[deep]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[light]"
+                          cachedDataType="i2"
+                          cachedName="light"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[light]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[light]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[midpoint_time]"
+                          cachedDataType="i2"
+                          cachedName="midpoint_time"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[midpoint_time]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[midpoint_time]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[efficiency]"
+                          cachedDataType="ui1"
+                          cachedName="efficiency"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[efficiency]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[efficiency]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[restless]"
+                          cachedDataType="ui1"
+                          cachedName="restless"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[restless]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[restless]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[onset_latency]"
+                          cachedDataType="i2"
+                          cachedName="onset_latency"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[onset_latency]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[onset_latency]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[got_up_count]"
+                          cachedDataType="bool"
+                          cachedName="got_up_count"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[got_up_count]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[got_up_count]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wake_up_count]"
+                          cachedDataType="ui1"
+                          cachedName="wake_up_count"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wake_up_count]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[wake_up_count]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hr_5min]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="550"
+                          cachedName="hr_5min"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hr_5min]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hr_5min]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hr_average]"
+                          cachedDataType="r8"
+                          cachedName="hr_average"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hr_average]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hr_average]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hr_lowest]"
+                          cachedDataType="r8"
+                          cachedName="hr_lowest"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hr_lowest]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hr_lowest]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lowest_heart_rate_time_offset]"
+                          cachedDataType="i2"
+                          cachedName="lowest_heart_rate_time_offset"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lowest_heart_rate_time_offset]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[lowest_heart_rate_time_offset]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hypnogram_5min]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="550"
+                          cachedName="hypnogram_5min"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hypnogram_5min]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[hypnogram_5min]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rmssd]"
+                          cachedDataType="ui1"
+                          cachedName="rmssd"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rmssd]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[rmssd]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rmssd_5min]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="550"
+                          cachedName="rmssd_5min"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rmssd_5min]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[rmssd_5min]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score]"
+                          cachedDataType="ui1"
+                          cachedName="score"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_alignment]"
+                          cachedDataType="ui1"
+                          cachedName="score_alignment"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_alignment]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_alignment]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_deep]"
+                          cachedDataType="ui1"
+                          cachedName="score_deep"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_deep]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_deep]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_disturbances]"
+                          cachedDataType="ui1"
+                          cachedName="score_disturbances"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_disturbances]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_disturbances]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_efficiency]"
+                          cachedDataType="ui1"
+                          cachedName="score_efficiency"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_efficiency]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_efficiency]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_latency]"
+                          cachedDataType="ui1"
+                          cachedName="score_latency"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_latency]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_latency]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_rem]"
+                          cachedDataType="ui1"
+                          cachedName="score_rem"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_rem]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_rem]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_total]"
+                          cachedDataType="ui1"
+                          cachedName="score_total"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_total]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[score_total]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[temperature_deviation]"
+                          cachedDataType="r8"
+                          cachedName="temperature_deviation"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_deviation]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_deviation]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[temperature_trend_deviation]"
+                          cachedDataType="r8"
+                          cachedName="temperature_trend_deviation"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_trend_deviation]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_trend_deviation]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bedtime_start_delta]"
+                          cachedDataType="i4"
+                          cachedName="bedtime_start_delta"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bedtime_start_delta]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_start_delta]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bedtime_end_delta]"
+                          cachedDataType="i4"
+                          cachedName="bedtime_end_delta"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bedtime_end_delta]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[bedtime_end_delta]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[midpoint_at_delta]"
+                          cachedDataType="i4"
+                          cachedName="midpoint_at_delta"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[midpoint_at_delta]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[midpoint_at_delta]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[temperature_delta]"
+                          cachedDataType="r8"
+                          cachedName="temperature_delta"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_delta]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_delta]" />
+                        <inputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DTS]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DTS"
+                          externalMetadataColumnId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DTS]"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Output].Columns[DTS]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[summary_date]"
+                          dataType="dbDate"
+                          name="summary_date" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[period_id]"
+                          dataType="ui1"
+                          name="period_id" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_longest]"
+                          dataType="ui1"
+                          name="is_longest" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
+                          dataType="i2"
+                          name="timezone" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bedtime_end]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bedtime_end" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bedtime_start]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bedtime_start" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="type" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[breath_average]"
+                          dataType="r8"
+                          name="breath_average" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[average_breath_variation]"
+                          dataType="r8"
+                          name="average_breath_variation" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[duration]"
+                          dataType="i4"
+                          name="duration" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total]"
+                          dataType="i4"
+                          name="total" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[awake]"
+                          dataType="i2"
+                          name="awake" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rem]"
+                          dataType="i2"
+                          name="rem" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[deep]"
+                          dataType="i2"
+                          name="deep" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[light]"
+                          dataType="i2"
+                          name="light" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[midpoint_time]"
+                          dataType="i2"
+                          name="midpoint_time" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[efficiency]"
+                          dataType="ui1"
+                          name="efficiency" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[restless]"
+                          dataType="ui1"
+                          name="restless" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[onset_latency]"
+                          dataType="i2"
+                          name="onset_latency" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[got_up_count]"
+                          dataType="bool"
+                          name="got_up_count" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wake_up_count]"
+                          dataType="ui1"
+                          name="wake_up_count" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hr_5min]"
+                          codePage="1252"
+                          dataType="str"
+                          length="550"
+                          name="hr_5min" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hr_average]"
+                          dataType="r8"
+                          name="hr_average" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hr_lowest]"
+                          dataType="r8"
+                          name="hr_lowest" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lowest_heart_rate_time_offset]"
+                          dataType="i2"
+                          name="lowest_heart_rate_time_offset" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hypnogram_5min]"
+                          codePage="1252"
+                          dataType="str"
+                          length="550"
+                          name="hypnogram_5min" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rmssd]"
+                          dataType="ui1"
+                          name="rmssd" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rmssd_5min]"
+                          codePage="1252"
+                          dataType="str"
+                          length="550"
+                          name="rmssd_5min" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score]"
+                          dataType="ui1"
+                          name="score" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_alignment]"
+                          dataType="ui1"
+                          name="score_alignment" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_deep]"
+                          dataType="ui1"
+                          name="score_deep" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_disturbances]"
+                          dataType="ui1"
+                          name="score_disturbances" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_efficiency]"
+                          dataType="ui1"
+                          name="score_efficiency" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_latency]"
+                          dataType="ui1"
+                          name="score_latency" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_rem]"
+                          dataType="ui1"
+                          name="score_rem" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_total]"
+                          dataType="ui1"
+                          name="score_total" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_deviation]"
+                          dataType="r8"
+                          name="temperature_deviation" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_trend_deviation]"
+                          dataType="r8"
+                          name="temperature_trend_deviation" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bedtime_start_delta]"
+                          dataType="i4"
+                          name="bedtime_start_delta" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bedtime_end_delta]"
+                          dataType="i4"
+                          name="bedtime_end_delta" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[midpoint_at_delta]"
+                          dataType="i4"
+                          name="midpoint_at_delta" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_delta]"
+                          dataType="r8"
+                          name="temperature_delta" />
+                        <externalMetadataColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DTS]"
+                          dataType="dbTimeStamp2"
+                          name="DTS"
+                          scale="7" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Oura Data Sequence\Data Flow Task.Paths[Derived Column Output]"
+                  endId="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Oura Data Sequence\Data Flow Task.Paths[Flat File Source Output]"
+                  endId="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Oura Data Sequence\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Oura Data Sequence\Oura API Call"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute API call for Oura Data"
+          DTS:DTSID="{72e8e52d-b845-4741-a962-f9286e17b949}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Oura API Call"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">@[$Project::oura_api]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Executable">@[$Project::pythonExe]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="WorkingDirectory">@[$Project::scriptsDir]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\ProgramData\miniconda3\python.exe"
+              Arguments="oura_sleep.py"
+              WorkingDirectory="C:\sharefolder\Scripts\SleepTracker\" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Oura Data Sequence.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6EAC2B94-132D-4185-8DD8-1FAEE765CCA0}"
+          DTS:From="Package\Oura Data Sequence\Oura API Call"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Oura Data Sequence\Copy Data In Archive" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Oura Data Sequence.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{FFF3C390-CCC7-4398-AEF2-7B9FB8640DCC}"
+          DTS:From="Package\Oura Data Sequence\Copy Data In Archive"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Oura Data Sequence\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Oura Data Sequence\Copy Data In Archive"
+          TopLeft="30.4999780083702,119.399997956952" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Oura Data Sequence\Data Flow Task"
+          TopLeft="43.3359115033633,212.169881041576" />
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\Oura Data Sequence\Oura API Call"
+          TopLeft="55.4999766424307,22.3333319652744" />
+        <EdgeLayout
+          Id="Package\Oura Data Sequence.PrecedenceConstraints[Constraint]"
+          TopLeft="122.3999773254,63.9333319652744">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.4666659916774"
+              Start="0,0"
+              End="0,47.9666659916774">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.9666659916774" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Oura Data Sequence.PrecedenceConstraints[Constraint 1]"
+          TopLeft="118.517944755867,160.999997956952">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.1698830846236"
+              Start="0,0"
+              End="0,43.6698830846236">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6698830846236" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="312.8,308.8"
+          Size="312.8,352"
+          Id="Package\Oura Data Sequence"
+          TopLeft="371.666646359696,130.866665756636" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Oura Data Sequence\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Oura Data Sequence\Data Flow Task\Flat File Source"
+          TopLeft="246.666653189395,168.999998824795" />
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\Oura Data Sequence\Data Flow Task\Add DATE STAMP"
+          TopLeft="237.499987023573,267.799998137752" />
+        <EdgeLayout
+          Id="Package\Oura Data Sequence\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="321.283320106484,210.599998824795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.199999312957"
+              Start="0,0"
+              End="0,49.699999312957">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.699999312957" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination"
+          TopLeft="234.166653872365,374.399997396469" />
+        <EdgeLayout
+          Id="Package\Oura Data Sequence\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="320.033320447969,309.399998137752">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.9999992587171"
+              Start="0,0"
+              End="0,57.4999992587171">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.4999992587171" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Oura Data Sequence\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
